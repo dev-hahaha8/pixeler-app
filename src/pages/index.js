@@ -2,7 +2,6 @@ import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-// Firebaseの初期化を行うためfirebaseAppをインポート
 import firebaseApp from '../lib/FirebaseConfig';
 
 export default function Dashboard() {
@@ -14,7 +13,6 @@ export default function Dashboard() {
           if (user) {
           setUser(user);
           } else {
-          // ログインしていない場合はログインページにリダイレクト
           window.location.href = "/login";
           }
      });
@@ -26,7 +24,6 @@ export default function Dashboard() {
      const auth = getAuth();
      signOut(auth)
           .then(() => {
-          // ログアウト後はホームページにリダイレクト
           window.location.href = "/login";
           })
           .catch(error => {
@@ -38,7 +35,6 @@ export default function Dashboard() {
      const auth = getAuth();
      deleteUser(auth.currentUser)
           .then(() => {
-          // アカウント削除後はホームページにリダイレクト
           window.location.href = "/register";
           })
           .catch(error => {
@@ -70,10 +66,7 @@ export default function Dashboard() {
                cursor: 'pointer',
                marginRight: '10px',
                marginTop: "15px"
-               },
-               buttonHover: {
-               backgroundColor: '#0056b3',
-               },
+               }
      };
 
      return (

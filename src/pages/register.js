@@ -2,31 +2,60 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-// Firebaseの初期化を行うためfirebaseAppをインポート
 import firebaseApp from '../lib/FirebaseConfig';
 
 export default function Register() {
-     // useStateでユーザーが入力したメールアドレスとパスワードをemailとpasswordに格納する
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
-
-     // ユーザーが登録ボタンを押したときにdoRegister関数が実行される
      const doRegister = () => {
      const auth = getAuth();
 
-     // Firebaseで用意されているユーザー登録の関数
      createUserWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
-          window.location.href = "/dashboard"
+          window.location.href = "/"
      })
      .catch((error) => {
           alert("登録に失敗しました。");
      });
      }
 
+     const styles = {
+          container: {
+               maxWidth: '800px',
+               margin: '20px auto',
+               padding: '20px',
+               border: '1px solid #ccc',
+               borderRadius: '5px',
+               backgroundColor: '#f9f9f9',
+               color: "#111"
+               },
+               header: {
+               fontSize: '24px',
+               marginBottom: '20px',
+               color: "#111"
+               },
+               input: {
+               backgroundColor: "#E8F0FE",
+               color: "#111",
+               margin: "5px",
+               padding: "5px 20px",
+               borderRadius: "5px"
+               },
+               button: {
+               padding: '10px 20px',
+               backgroundColor: '#007bff',
+               color: '#fff',
+               border: 'none',
+               borderRadius: '5px',
+               cursor: 'pointer',
+               marginRight: '10px',
+               marginTop: "15px"
+               }
+     };
+
      return (
-     <div>
-          <h1>新規登録</h1>
+     <div style={styles.container}>
+          <h1 style={styles.header}>新規登録</h1>
           <div>
           <Form>
                <FormGroup>
@@ -36,8 +65,8 @@ export default function Register() {
                <Input
                     type="email"
                     name="email"
-                    // onChangeでユーザーが入力した値を取得し、その値をemailに入れる
                     onChange={(e) => setEmail(e.target.value)}
+                    style={styles.input}
                />
                </FormGroup>
                <FormGroup>
@@ -47,11 +76,11 @@ export default function Register() {
                <Input
                     type="password"
                     name="password"
-                    // onChangeでユーザーが入力した値を取得し、その値をpasswordに入れる
                     onChange={(e) => setPassword(e.target.value)}
+                    style={styles.input}
                />
                </FormGroup>
-               <Button onClick={doRegister}>新規登録</Button>
+               <Button style={styles.button} onClick={doRegister}>新規登録</Button>
           </Form>
           </div>
      </div>

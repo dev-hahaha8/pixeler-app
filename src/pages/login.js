@@ -2,7 +2,6 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-// Firebaseを初期化 このコードがないとエラーが起きます
 import firebaseApp from '../lib/FirebaseConfig';
 
 export default function Login() {
@@ -14,16 +13,50 @@ export default function Login() {
 
           signInWithEmailAndPassword(auth, email, password)
                .then(() => {
-                    window.location.href = "/dashboard";
+                    window.location.href = "/";
                })
                .catch(() => {
                     alert("ログインに失敗しました。");
                });
      }
 
+     const styles = {
+          container: {
+               maxWidth: '800px',
+               margin: '20px auto',
+               padding: '20px',
+               border: '1px solid #ccc',
+               borderRadius: '5px',
+               backgroundColor: '#f9f9f9',
+               color: "#111"
+               },
+               header: {
+               fontSize: '24px',
+               marginBottom: '20px',
+               color: "#111"
+               },
+               input: {
+               backgroundColor: "#E8F0FE",
+               color: "#111",
+               margin: "5px",
+               padding: "5px 20px",
+               borderRadius: "5px"
+               },
+               button: {
+               padding: '10px 20px',
+               backgroundColor: '#007bff',
+               color: '#fff',
+               border: 'none',
+               borderRadius: '5px',
+               cursor: 'pointer',
+               marginRight: '10px',
+               marginTop: "15px"
+               }
+     };
+
      return (
-          <div>
-          <h1>ログイン</h1>
+          <div style={styles.container}>
+          <h1 style={styles.header}>ログイン</h1>
           <div>
                <Form>
                     <FormGroup>
@@ -32,6 +65,7 @@ export default function Login() {
                               type="email"
                               name="email"
                               onChange={(e) => setEmail(e.target.value)}
+                              style={styles.input}
                          />
                     </FormGroup>
                     <FormGroup>
@@ -40,9 +74,10 @@ export default function Login() {
                               type="password"
                               name="password"
                               onChange={(e) => setPassword(e.target.value)}
+                              style={styles.input}
                          />
                     </FormGroup>
-                    <Button onClick={doLogin}>ログイン</Button>
+                    <Button style={styles.button} onClick={doLogin}>ログイン</Button>
                </Form>
                </div>
           </div>
