@@ -81,6 +81,7 @@ export default function Register() {
                />
                </FormGroup>
                <Button style={styles.button} onClick={doRegister}>新規登録</Button>
+               <a href="/login">ログインする</a>
           </Form>
           </div>
      </div>

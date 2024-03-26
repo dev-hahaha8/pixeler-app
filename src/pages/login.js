@@ -78,6 +78,7 @@ export default function Login() {
                          />
                     </FormGroup>
                     <Button style={styles.button} onClick={doLogin}>ログイン</Button>
+                    <a href="/register">新規登録する</a>
                </Form>
                </div>
           </div>

@@ -32,14 +32,17 @@ export default function Dashboard() {
      };
 
      const handleDeleteAccount = () => {
-     const auth = getAuth();
-     deleteUser(auth.currentUser)
-          .then(() => {
-          window.location.href = "/register";
-          })
-          .catch(error => {
-          console.error("アカウント削除時にエラーが発生しました: ", error);
-          });
+          const isConfirmed = confirm("アカウントを削除してもよろしいですか？");
+          if (isConfirmed) {
+               const auth = getAuth();
+               deleteUser(auth.currentUser)
+               .then(() => {
+                    window.location.href = "/register";
+               })
+               .catch(error => {
+                    console.error("アカウント削除時にエラーが発生しました: ", error);
+               });
+          } else {}
      };
 
      const styles = {
