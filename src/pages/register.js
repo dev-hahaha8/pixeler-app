@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import styles from '../styles/styles.module.css';
 
 import firebaseApp from '../lib/FirebaseConfig';
 
@@ -19,44 +20,10 @@ export default function Register() {
      });
      }
 
-     const styles = {
-          container: {
-               maxWidth: '800px',
-               margin: '20px auto',
-               padding: '20px',
-               border: '1px solid #ccc',
-               borderRadius: '5px',
-               backgroundColor: '#f9f9f9',
-               color: "#111"
-               },
-               header: {
-               fontSize: '24px',
-               marginBottom: '20px',
-               color: "#111"
-               },
-               input: {
-               backgroundColor: "#E8F0FE",
-               color: "#111",
-               margin: "5px",
-               padding: "5px 20px",
-               borderRadius: "5px"
-               },
-               button: {
-               padding: '10px 20px',
-               backgroundColor: '#007bff',
-               color: '#fff',
-               border: 'none',
-               borderRadius: '5px',
-               cursor: 'pointer',
-               marginRight: '10px',
-               marginTop: "15px"
-               }
-     };
-
      return (
-     <div style={styles.container}>
-          <h1 style={styles.header}>新規登録</h1>
-          <div>
+     <div className={styles.container}>
+          <h1 className={styles.header}>新規登録</h1>
+          <div className={styles.info}>
           <Form>
                <FormGroup>
                <Label>
@@ -66,7 +33,7 @@ export default function Register() {
                     type="email"
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
-                    style={styles.input}
+                    className={styles.input}
                />
                </FormGroup>
                <FormGroup>
@@ -77,11 +44,11 @@ export default function Register() {
                     type="password"
                     name="password"
                     onChange={(e) => setPassword(e.target.value)}
-                    style={styles.input}
+                    className={styles.input}
                />
                </FormGroup>
-               <Button style={styles.button} onClick={doRegister}>新規登録</Button>
-               <a href="/login">ログインする</a>
+               <Button className={styles.button} onClick={doRegister}>新規登録</Button>
+               <a href="/login" className={styles.link_text}>ログインする</a>
           </Form>
           </div>
      </div>
