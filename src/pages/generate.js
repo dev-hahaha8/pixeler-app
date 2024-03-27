@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styles from '../styles/styles.module.css';
+import Head from 'next/head';
 
 export default function Generate() {
      const [prompt, setPrompt] = useState('');
@@ -31,6 +32,9 @@ export default function Generate() {
 
      return (
      <div className={styles.container}>
+               <Head>
+                    <title>画像生成</title>
+               </Head>
           <h1 className={styles.header}>画像生成</h1>
           <div className={styles.info}>
                <p className={styles.generate}><a href="/">ダッシュボードページに移動</a></p>

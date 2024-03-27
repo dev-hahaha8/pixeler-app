@@ -1,6 +1,6 @@
 import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Head from 'next/head';
 import styles from '../styles/styles.module.css';
 
 import firebaseApp from '../lib/FirebaseConfig';
@@ -48,6 +48,9 @@ export default function Dashboard() {
 
      return (
           <div className={styles.container}>
+               <Head>
+                    <title>ダッシュボード</title>
+               </Head>
                <h1 className={styles.header}>ダッシュボード</h1>
                <div className={styles.info}>
                     <p>ログインユーザー: {user ? user.email : "未ログイン"}</p>

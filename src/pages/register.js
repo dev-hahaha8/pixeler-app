@@ -2,6 +2,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styles from '../styles/styles.module.css';
+import Head from 'next/head';
 
 import firebaseApp from '../lib/FirebaseConfig';
 
@@ -22,6 +23,9 @@ export default function Register() {
 
      return (
      <div className={styles.container}>
+               <Head>
+                    <title>新規登録</title>
+               </Head>
           <h1 className={styles.header}>新規登録</h1>
           <div className={styles.info}>
           <Form>
