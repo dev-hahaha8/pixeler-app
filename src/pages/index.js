@@ -52,6 +52,8 @@ export default function Dashboard() {
                <div className={styles.info}>
                     <p>ログインユーザー: {user ? user.email : "未ログイン"}</p>
 
+                    <p className={styles.generate}><a href="/generate">画像生成ページに移動</a></p>
+
                     <button className={styles.button} onClick={handleLogout}>ログアウト</button>
                     <button className={styles.button} onClick={handleDeleteAccount}>アカウント削除</button>
                </div>
