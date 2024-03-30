@@ -1,9 +1,28 @@
 import { useState } from 'react';
+import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styles from '../styles/styles.module.css';
 import Head from 'next/head';
+import React, { useEffect } from 'react';    
+
+import firebaseApp from '../lib/FirebaseConfig';
 
 export default function Generate() {
+     const [user, setUser] = useState(null);
+     
+     useEffect(() => {
+          const auth = getAuth();
+          const unsubscribe = auth.onAuthStateChanged(user => {
+               if (user) {
+               setUser(user);
+               } else {
+               window.location.href = "/login";
+               }
+          });
+     
+          return () => unsubscribe();
+     }, []);
+
      const [prompt, setPrompt] = useState('');
      const [images, setImages] = useState([]);
      
