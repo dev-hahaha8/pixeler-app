@@ -3,7 +3,9 @@ import { getAuth, signOut, deleteUser } from "firebase/auth";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styles from '../styles/styles.module.css';
 import Head from 'next/head';
-import React, { useEffect } from 'react';    
+import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import firebaseApp from '../lib/FirebaseConfig';
 
@@ -49,14 +51,33 @@ export default function Generate() {
           }
      }
 
+     const [menuOpen, setMenuOpen] = useState(false);
+     const toggleMenu = () => {
+          setMenuOpen(!menuOpen);
+     };
+
      return (
      <div className={styles.container}>
                <Head>
-                    <title>画像生成</title>
+                    <title>Image generation | Pixeler</title>
                </Head>
-          <h1 className={styles.header}>画像生成</h1>
+               <div className={styles.top}>
+                    <input type="checkbox" id="menu-toggle" className={styles.menuToggle} checked={menuOpen} onChange={toggleMenu} />
+                    <label htmlFor="menu-toggle" className={styles.menuToggleLabel}><FontAwesomeIcon icon={faBars} /></label>
+                    <div className={`${styles.menu} ${menuOpen ? styles.active : ''}`}>
+                    <ul>
+                         <li><a href="/">ホーム</a></li>
+                         <li><a href="/generate">画像生成</a></li>
+                    </ul>
+                    </div>
+                    <div className={styles.logo}>
+                    <a href="/">
+                         <img src="/logo.png"/>
+                    </a>
+                    </div>
+               </div>
           <div className={styles.info}>
-               <p className={styles.generate}><a href="/">ダッシュボードページに移動</a></p>
+               <p className={styles.generate}><a href="/">ホームに移動</a></p>
 
                <form className={styles.form} onSubmit={handleSubmit}>
                <input

@@ -1,27 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
 .container {
-     font-family: "Zen Kaku Gothic New", sans-serif;
-     max-width: 650px;
-     margin: 20px auto;
-     padding: 20px;
-     border: 1px solid #ccc;
-     border-radius: 5px;
-     background-color: #f9f9f9;
+     font-family: BlinkMacSystemFont,"Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+     width: 100vw;
+     height: 100vh;
+     background-color: #FCFAFF;
      color: #111;
+     margin: 0;
+     padding: 75px 0 0 0;
 }
 
-.header {
-     color: #111;
-     text-align: center;
+.top {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background-color: #fff;
+     border-bottom: 1.5px solid rgba(0, 0, 0, .1);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px;
+     height: 75px;
+}
+.top img {
+     display: inline-block;
+     width: 125px;
+     height: auto;
+}
+.menuToggle {
+     display: none;
+}
+.menuToggleLabel {
+     cursor: pointer;
+     position: fixed;
+     top: 22.5px;
+     left: 20px;
+     z-index: 1100;
+}
+.menuToggleLabel svg {
      font-size: 25px;
-     margin-bottom: 20px;
+}
+.menu {
+     position: fixed;
+     top: 0;
+     left: -250px;
+     width: 250px;
+     height: 100%;
+     background-color: #fff;
+     border-right: 1.5px solid rgba(0, 0, 0, .1);
+     z-index: 1000;
+     transition: left 0.3s ease;
+}
+.menu.active {
+     left: 0
+}
+.menu ul {
+     list-style: none;
+     padding: 0;
+     margin: 70px 0 0 10px;
+}
+.menu ul li {
+     padding: 15px;
+}
+.menu ul li a {
+     text-decoration: none;
+     color: #000;
+}
+.logo {
+     position: fixed;
+     top: 20px;
+     z-index: 1100;
+     left: 50%;
+     transform: translateX(-50%);
+
 }
 
 .info {
-     max-width: 550px;
+     max-width: 500px;
      margin: 15px auto;
+     font-size: 17.5px;
+}
+
+.info_board {
+     max-width: 500px;
+     margin: 25px auto;
+     font-size: 17.5px;
+}
+.info_board h1 {
+     font-weight: bold;
+     font-size: 22.5px;
+     text-align: center;
+     color: #111;
+     margin-bottom: 15px;
+}
+.info_board label {
      font-size: 17.5px;
 }
 
@@ -44,7 +117,7 @@
 .input {
      margin: 5px 7.5px;
      padding: 5px 12.5px;
-     font-family: "Reddit Mono", monospace, "Zen Kaku Gothic New", sans-serif;
+     font-family: "Reddit Mono", monospace, sans-serif;
      font-size: 15px;
      background-color: rgba(232, 240, 254, .5);
      color: #333;

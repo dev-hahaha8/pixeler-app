@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import styles from '../styles/styles.module.css';
 import Head from 'next/head';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import firebaseApp from '../lib/FirebaseConfig';
 
@@ -21,13 +23,33 @@ export default function Register() {
      });
      }
 
+     const [menuOpen, setMenuOpen] = useState(false);
+     const toggleMenu = () => {
+          setMenuOpen(!menuOpen);
+     };
+
      return (
      <div className={styles.container}>
                <Head>
-                    <title>新規登録</title>
+                    <title>Regsiter - Pixeler</title>
                </Head>
-          <h1 className={styles.header}>新規登録</h1>
-          <div className={styles.info}>
+               <div className={styles.top}>
+                    <input type="checkbox" id="menu-toggle" className={styles.menuToggle} checked={menuOpen} onChange={toggleMenu} />
+                    <label htmlFor="menu-toggle" className={styles.menuToggleLabel}><FontAwesomeIcon icon={faBars} /></label>
+                    <div className={`${styles.menu} ${menuOpen ? styles.active : ''}`}>
+                    <ul>
+                         <li><a href="/">ホーム</a></li>
+                         <li><a href="/generate">画像生成</a></li>
+                    </ul>
+                    </div>
+                    <div className={styles.logo}>
+                    <a href="/">
+                         <img src="/logo.png"/>
+                    </a>
+                    </div>
+               </div>
+          <div className={styles.info_board}>
+          <h1>新規登録</h1>
           <Form>
                <FormGroup>
                <Label>
