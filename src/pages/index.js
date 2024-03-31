@@ -57,7 +57,7 @@ export default function Dashboard() {
      return (
           <div className={styles.container}>
                <Head>
-                    <title>Login - Pixeler</title>
+                    <title>Pixeler</title>
                </Head>
                <div className={styles.top}>
                     <input type="checkbox" id="menu-toggle" className={styles.menuToggle} checked={menuOpen} onChange={toggleMenu} />
