@@ -77,8 +77,6 @@ export default function Generate() {
                     </div>
                </div>
           <div className={styles.info}>
-               <p className={styles.generate}><a href="/">ホームに移動</a></p>
-
                <form className={styles.form} onSubmit={handleSubmit}>
                <input
                type="text"
