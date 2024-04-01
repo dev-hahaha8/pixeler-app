@@ -34,12 +34,12 @@
 .menuToggleLabel {
      cursor: pointer;
      position: fixed;
-     top: 22.5px;
+     top: 21.5px;
      left: 20px;
      z-index: 1100;
 }
 .menuToggleLabel svg {
-     font-size: 25px;
+     font-size: 27.5px;
 }
 .menu {
      position: fixed;
@@ -49,6 +49,7 @@
      height: 100%;
      background-color: #fff;
      border-right: 1.5px solid rgba(0, 0, 0, .1);
+     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .1);
      z-index: 1000;
      transition: left 0.3s ease;
 }
