@@ -5,6 +5,7 @@ import styles from '../styles/styles.module.css';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import firebaseApp from '../lib/FirebaseConfig';
 
 export default function Dashboard() {
@@ -74,14 +75,12 @@ export default function Dashboard() {
                     </a>
                     </div>
                </div>
-               <div className={styles.info_img}>
-                    <div className={styles.info_img_content}>
-                         <img src="/example1.png" />
-                         <img src="/example2.png" />
-                         <img src="/example3.png" />
-                         <img src="/example4.png" />
-                         <img src="/example5.png" />
-                    </div>
+               <div className={styles.info}>
+                    <h1>アカウント情報</h1>
+                    <p>登録しているメールアドレス: {user ? user.email : "未ログイン"}</p>
+
+                    <button className={styles.button} onClick={handleLogout}>ログアウト</button>
+                    <button className={styles.button} onClick={handleDeleteAccount}>アカウント削除</button>
                </div>
           </div>
      );

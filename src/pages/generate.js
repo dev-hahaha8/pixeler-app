@@ -61,13 +61,14 @@ export default function Generate() {
                <Head>
                     <title>Image generation | Pixeler</title>
                </Head>
-               <div className={styles.top}>
+               <div className={styles.header}>
                     <input type="checkbox" id="menu-toggle" className={styles.menuToggle} checked={menuOpen} onChange={toggleMenu} />
                     <label htmlFor="menu-toggle" className={styles.menuToggleLabel}><FontAwesomeIcon icon={faBars} /></label>
                     <div className={`${styles.menu} ${menuOpen ? styles.active : ''}`}>
                     <ul>
                          <li><a href="/">ホーム</a></li>
                          <li><a href="/generate">画像生成</a></li>
+                         <li><a href="/setting">設定</a></li>
                     </ul>
                     </div>
                     <div className={styles.logo}>
