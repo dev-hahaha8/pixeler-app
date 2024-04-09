@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 .container {
      font-family: "Noto Sans JP", sans-serif;
      width: 100vw;
@@ -152,16 +155,26 @@
      margin: 15px 20px;
 }
 
-.info_img {
-     max-width: 1000px;
-     margin: 25px auto;
+.top {
+     max-width: 750px;
+     margin: 30px auto;
      display: flex;
-     justify-content: center;
 }
-.info_img img {
-     display: inline-block;
-     width: 150px;
-     height: 150px;
-     margin: 10px 20px;
-     border-radius: 5px;
+.top img {
+     width: 275px;
+     height: auto;
+}
+.top div {
+     line-height: 2;
+     margin: 30px 0 0 15px;
+}
+.top div h1 {
+     font-family: "Ubuntu", sans-serif;
+     font-size: 30px;
+     font-weight: 500;
+     margin-bottom: 5px;
+}
+.top div p {
+     font-weight: 500;
+     font-size: 17.5px;
 }

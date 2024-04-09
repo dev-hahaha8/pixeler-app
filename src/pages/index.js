@@ -74,13 +74,11 @@ export default function Dashboard() {
                     </a>
                     </div>
                </div>
-               <div className={styles.info_img}>
-                    <div className={styles.info_img_content}>
-                         <img src="/example1.png" />
-                         <img src="/example2.png" />
-                         <img src="/example3.png" />
-                         <img src="/example4.png" />
-                         <img src="/example5.png" />
+               <div className={styles.top}>
+                    <img src="/top.svg" />
+                    <div>
+                         <h1>Intuitive Image Generation</h1>
+                         <p>Pixelerは使いやすいUIで直感的にあなたのニーズに合った画像を生成することができます。</p>
                     </div>
                </div>
           </div>
